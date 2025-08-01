@@ -12,7 +12,7 @@ def landing_page(request):
         return redirect('home-page')
     return render(request, 'todoapp/base.html')
 
-# Dashboard / Home
+
 @login_required
 def home(request):
     if request.method == 'POST':
@@ -124,7 +124,6 @@ def change_password(request):
         user.set_password(new_password)
         user.save()
 
-        # Keep user logged in after password change
         update_session_auth_hash(request, user)
 
         messages.success(request, 'Password updated successfully.')
