@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/Language-Python-blue?logo=python&style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
-A modern and responsive **ToDo List Web Application** built with **Django** that helps users manage their daily tasks with ease. The app features an intuitive dashboard, task tracking, user authentication, dark/light themes, and much more!
+A modern and responsive **ToDo List Web Application** built with **Django** that helps users manage their daily tasks with ease. The app features an intuitive dashboard, task tracking, user authentication, and much more!
 
 🌐 **Live Demo**: [https://todolist-app-4do9.onrender.com](https://todolist-app-4do9.onrender.com)
 
@@ -15,9 +15,7 @@ A modern and responsive **ToDo List Web Application** built with **Django** that
 - ✅ Create, View, Update & Delete Tasks
 - 🚦 Organize tasks into To-Do, In Progress, and Completed
 - 🔄 Change Password & Reset Password via Email
-- 🎨 Beautiful Dashboard with Light/Dark Mode Toggle
 - 📆 Today Section with Calendar-Like Task View
-- 👤 Editable User Profile Section
 - ⚙️ Interactive & Dynamic UI using JavaScript
 
 ---
@@ -217,3 +215,4 @@ This project is open-source and available under the MIT License.
 
 
     
+
