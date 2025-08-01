@@ -7,142 +7,140 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
     body {
       margin: 0;
       padding: 0;
-      min-height: 100vh;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fc;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
+      min-height: 100vh;
     }
 
     .card {
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-      border-radius: 20px;
-      border: 3px solid transparent;
-      background-color: #ffffff;
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       padding: 2rem;
-      animation: borderPulse 4s infinite ease-in-out;
+      margin-top: 3rem;
+      border: 1px solid #e0e0e0;
     }
 
-    @keyframes borderPulse {
-      0% {
-        border-color: #ffc0cb;
-      }
-
-      50% {
-        border-color: #87cefa;
-      }
-
-      100% {
-        border-color: #ffc0cb;
-      }
-    }
-
+    h3,
     h4 {
-      font-weight: bold;
-      color: #2c3e50;
-      text-align: center;
+      font-weight: 600;
+      color: #333;
     }
 
     .form-control {
-      border-radius: 10px;
+      border-radius: 8px;
+      padding: 0.6rem;
+      border: 1px solid #ced4da;
     }
 
-    .btn-primary,
-    .btn-danger,
-    .btn-warning,
-    .btn-success {
-      border-radius: 10px;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      transition: all 0.3s ease-in-out;
+    .btn {
+      border-radius: 8px;
       font-weight: 500;
+      padding: 0.4rem 1rem;
     }
 
     .btn-primary {
-      background-color: #6c5ce7;
+      background-color: #4c6ef5;
       border: none;
     }
 
     .btn-primary:hover {
-      background-color: #a29bfe;
-      box-shadow: 0 0 10px rgba(162, 155, 254, 0.6);
+      background-color: #5c7cfa;
+    }
+
+    .btn-danger {
+      background-color: #e03131;
+      border: none;
     }
 
     .btn-danger:hover {
-      box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+      background-color: #f03e3e;
     }
 
-    .btn-warning {
-      background-color: #f39c12;
-      color: #fff;
-    }
-
-    .btn-warning:hover {
-      background-color: #e67e22;
-      box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+    .btn-success {
+      background-color: #2f9e44;
+      border: none;
     }
 
     .btn-success:hover {
-      box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+      background-color: #37b24d;
     }
 
     .btn-logout {
-      background-color: #c0392b;
-      color: #fff;
+      background-color: #868e96;
+      color: white;
+      font-size: 0.9rem;
       border: none;
+      border-radius: 6px;
       transition: all 0.3s ease-in-out;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 
     .btn-logout:hover {
-      background-color: #e74c3c;
-      box-shadow: 0 0 15px rgba(231, 76, 60, 0.7);
-      transform: scale(1.02);
+      background-color: #495057;
+      transform: scale(1.03);
     }
-
-    .btn-warning {
-      background-color: #f39c12;
-      color: #fff;
-      border: none;
-      transition: all 0.3s ease-in-out;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    }
-
-    .btn-warning:hover {
-      background-color: #e67e22;
-      box-shadow: 0 0 15px rgba(243, 156, 18, 0.7);
-      transform: scale(1.02);
-    }
-
 
     .table {
+      margin-top: 1rem;
       background-color: #fff;
-      border-radius: 10px;
+      border-radius: 8px;
       overflow: hidden;
+      border-collapse: separate;
+      border-spacing: 0;
     }
 
-    .text-center a button {
-      margin-top: 10px;
+    .table thead th {
+      background-color: #f1f3f5;
+      font-weight: 600;
+      color: #495057;
+      border-bottom: 2px solid #dee2e6;
+    }
+
+    .table tbody tr:hover {
+      background-color: #f8f9fa;
+    }
+
+    .table td {
+      vertical-align: middle;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.4em 0.6em;
+      border-radius: 6px;
     }
 
     @media (max-width: 576px) {
-      .card {
-        padding: 1.5rem;
-      }
-
-      .col-8,
-      .col-auto {
-        width: 100% !important;
-        margin-bottom: 10px;
+      .form-control {
+        width: 100%;
       }
 
       .btn {
         width: 100%;
+        margin-top: 0.5rem;
+      }
+
+      .btn-logout {
+        width: auto;
+      }
+
+      .col-8,
+      .col-auto {
+        flex: 100%;
+        max-width: 100%;
       }
     }
   </style>
@@ -156,7 +154,9 @@
     <div class="row justify-content-center">
       <div class="col-md-10 col-lg-8">
         <div class="card">
-          <h4 class="mb-4">To Do App</h4>
+          <h4 class="mb-4">
+            📝 <span class="text-primary">Your Task Manager</span>
+          </h4>
 
           <form method="POST" class="row g-3 justify-content-center mb-3">
             {% csrf_token %}
@@ -168,20 +168,17 @@
             </div>
           </form>
 
-          <div class="text-center mb-3">
-            <a href="{% url 'logout' %}">
-              <button class="btn btn-logout px-4 me-2">Logout</button>
-            </a>
-            <a href="{% url 'change-password' %}">
-              <button class="btn btn-warning px-4">Change Password</button>
+          <div class="d-flex justify-content-end mb-3">
+            <a href="{% url 'logout' %}" class="btn btn-logout d-inline-flex align-items-center px-3 py-2">
+              <i class="fas fa-sign-out-alt me-2"></i> Logout
             </a>
           </div>
-
           <table class="table table-striped text-center">
             <thead>
               <tr>
                 <th>Todo item</th>
                 <th>Status</th>
+                <th>Created At</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -189,6 +186,7 @@
               {% for i in todos %}
               <tr>
                 <td>{{ i.todo_name }}</td>
+
                 <td>
                   {% if i.status %}
                   <span class="badge bg-success">Completed</span>
@@ -196,16 +194,28 @@
                   <span class="badge bg-warning text-dark">In Progress</span>
                   {% endif %}
                 </td>
+
                 <td>
-                  <a href="{% url 'delete' i.id %}" class="btn btn-danger btn-sm">Delete</a>
+                  {% if i.created_at %}
+                  {{ i.created_at|date:"M d, Y h:i A" }}
+                  {% else %}
+                  Not Available
+                  {% endif %}
+                </td>
+
+                <td>
+                  {% if i.id %}
+                  <a href="{% url 'delete-task' i.id %}" class="btn btn-danger btn-sm">Delete</a>
                   {% if not i.status %}
-                  <a href="{% url 'update' i.id %}" class="btn btn-success btn-sm ms-1">Finish</a>
+                  <a href="{% url 'update-task' i.id %}" class="btn btn-success btn-sm ms-1">Finish</a>
+                  {% endif %}
                   {% endif %}
                 </td>
               </tr>
+
               {% empty %}
               <tr>
-                <td colspan="3">No tasks added yet.</td>
+                <td colspan="4" class="text-muted fst-italic py-4">You have no tasks yet. Add your first one above!</td>
               </tr>
               {% endfor %}
             </tbody>

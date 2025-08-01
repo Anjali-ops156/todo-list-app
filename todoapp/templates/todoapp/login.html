@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -5,9 +6,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-
     * {
       margin: 0;
       padding: 0;
@@ -28,45 +29,47 @@
       width: 100%;
       background: #fff;
       padding: 34px;
-      border-radius: 6px;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
 
     .wrapper h2 {
-      font-size: 22px;
-      font-weight: 600;
+      font-size: 24px;
+      font-weight: 700;
       color: #333;
+      text-align: center;
       position: relative;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     .wrapper h2::before {
       content: '';
       position: absolute;
-      left: 0;
+      left: 50%;
+      transform: translateX(-50%);
       bottom: -6px;
       height: 3px;
-      width: 28px;
+      width: 30px;
       border-radius: 12px;
       background: #4070f4;
     }
 
     .input-box {
-      height: 52px;
-      margin: 18px 0;
+      position: relative;
+      height: 50px;
+      margin: 20px 0;
     }
 
     .input-box input {
       width: 100%;
       height: 100%;
-      padding: 0 15px;
-      font-size: 17px;
+      padding: 0 45px 0 15px;
+      font-size: 16px;
       color: #333;
-      border: 1.5px solid #C7BEBE;
-      border-bottom-width: 2.5px;
+      border: 1.5px solid #ccc;
       border-radius: 6px;
-      transition: 0.3s ease;
       outline: none;
+      transition: border-color 0.3s ease;
     }
 
     .input-box input:focus,
@@ -74,17 +77,26 @@
       border-color: #4070f4;
     }
 
+    .input-box i {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #ff4d4f;
+    }
+
     .input-box.button input {
-      background: #4070f4;
+      background-color: #007bff;
       color: #fff;
+      font-weight: 600;
       border: none;
       cursor: pointer;
-      letter-spacing: 1px;
-      font-weight: 500;
+      letter-spacing: 0.5px;
     }
 
     .input-box.button input:hover {
-      background: #0e4bf1;
+      background-color: #0056b3;
     }
 
     .text h3 {
@@ -92,22 +104,40 @@
       font-size: 14px;
       color: #333;
       margin-top: 10px;
+      font-weight: 500;
     }
 
     .text h3 a {
       color: #4070f4;
       text-decoration: none;
+      font-weight: 600;
+      margin-left: 4px;
     }
 
     .text h3 a:hover {
       text-decoration: underline;
     }
 
-    .message {
+    .auth-message {
       color: #b22222;
-      font-size: 16px;
+      font-size: 15px;
       text-align: center;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+    }
+
+    .back-button {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .back-button a {
+      color: #4070f4;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .back-button a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -118,7 +148,7 @@
 
     {% if messages %}
     {% for message in messages %}
-    <div class="message">{{ message }}</div>
+    <div class="auth-message">{{ message }}</div>
     {% endfor %}
     {% endif %}
 
@@ -126,20 +156,24 @@
       {% csrf_token %}
       <div class="input-box">
         <input type="text" name="username" placeholder="Enter your username" required>
+        <i class="fas fa-lock"></i>
       </div>
       <div class="input-box">
         <input type="password" name="password" placeholder="Enter your password" required>
+        <i class="fas fa-lock"></i>
       </div>
       <div class="input-box button">
         <input type="submit" value="Login">
       </div>
       <div class="text">
-        <h3>Don't have an account? <a href="{% url 'register' %}">Register now</a></h3>
-      </div>
-      <div class="text">
+        <h3>Don't have an account?<a href="{% url 'register' %}">Register now</a></h3>
         <h3>Forgot Password?<a href="{% url 'change-password' %}">Change Password</a></h3>
       </div>
     </form>
+
+    <div class="back-button">
+      <a href="{% url 'landing' %}">← Back to Dashboard</a>
+    </div>
   </div>
 </body>
 
